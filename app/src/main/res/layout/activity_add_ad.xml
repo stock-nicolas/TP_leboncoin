@@ -2,4 +2,35 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/Image_Ajout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@tools:sample/avatars" />
+
+        <EditText
+            android:id="@+id/Titre_Ajout"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:text="Title" />
+
+        <EditText
+            android:id="@+id/Adress_Ajout"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:text="Adress" />
+
+        <Button
+            android:id="@+id/Bouton_Ajout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Send" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

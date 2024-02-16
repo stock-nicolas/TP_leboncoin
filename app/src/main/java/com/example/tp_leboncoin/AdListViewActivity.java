@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -28,6 +30,18 @@ public class AdListViewActivity extends AppCompatActivity{
         liste_annonce.add(Annonce1);
         liste_annonce.add(Annonce2);
         liste_annonce.add(Annonce3);
+
+        if(getIntent() != null)
+        {
+            Intent i = getIntent();
+            String TITLE = i.getStringExtra ("Titre");
+            String ADRESSE = i.getStringExtra ("Adresse");
+            int IMAGE = i.getIntExtra("image",R.drawable.ic_launcher_background);
+
+            AdModel Annonce4 = new AdModel(TITLE, ADRESSE,IMAGE);
+
+            liste_annonce.add(Annonce4);
+        }
 
         AdAdapter adapter = new AdAdapter(this,liste_annonce);
 
