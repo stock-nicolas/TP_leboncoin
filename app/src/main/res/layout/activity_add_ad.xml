@@ -7,24 +7,26 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <ImageView
             android:id="@+id/Image_Ajout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@tools:sample/avatars" />
+            tools:srcCompat="@tools:sample/avatars" />
 
         <EditText
             android:id="@+id/Titre_Ajout"
             android:layout_width="match_parent"
-            android:layout_height="49dp"
+            android:layout_height="83dp"
             android:text="Title" />
 
         <EditText
             android:id="@+id/Adress_Ajout"
             android:layout_width="match_parent"
-            android:layout_height="41dp"
+            android:layout_height="80dp"
             android:text="Adress" />
 
         <Button

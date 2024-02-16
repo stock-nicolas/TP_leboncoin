@@ -31,7 +31,7 @@ public class AdListViewActivity extends AppCompatActivity{
         liste_annonce.add(Annonce2);
         liste_annonce.add(Annonce3);
 
-        if(getIntent() != null)
+        if(getIntent().hasExtra("Titre"))
         {
             Intent i = getIntent();
             String TITLE = i.getStringExtra ("Titre");
