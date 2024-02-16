@@ -21,6 +21,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".AdListViewActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".AdAddActivity"
+            android:exported="true">
+        </activity>
+
     </application>
 
 </manifest>
