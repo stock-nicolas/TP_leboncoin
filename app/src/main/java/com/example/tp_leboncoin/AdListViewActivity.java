@@ -3,6 +3,7 @@ package com.example.tp_leboncoin;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 
@@ -19,9 +20,17 @@ public class AdListViewActivity extends AppCompatActivity{
 
         ArrayList<AdModel> liste_annonce = new ArrayList<>();
 
+        ListView listView = findViewById(R.id.listView);
+
         liste_annonce.add(Annonce1);
         liste_annonce.add(Annonce2);
         liste_annonce.add(Annonce3);
+
+        AdAdapter adapter = new AdAdapter(this,liste_annonce);
+
+        listView.setAdapter(adapter);
+
+
 
     }
 }
