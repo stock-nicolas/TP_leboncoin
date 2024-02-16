@@ -18,4 +18,17 @@ public class AdModel {
         this.title=title;
     }
 
+    public int getImage(){
+        return image;
+    }
+    public void setImage(int image){
+        this.image=image;
+    }
+
+    public String getAddress(){
+        return address;
+    }
+    public void setAddress(String address){
+        this.address=address;
+    }
 }
