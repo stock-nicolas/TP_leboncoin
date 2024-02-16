@@ -1,11 +1,10 @@
 package com.example.tp_leboncoin;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-public class AdListViewActivity extends AppCompatActivity{
+import androidx.appcompat.app.AppCompatActivity;
 
+public class AdViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

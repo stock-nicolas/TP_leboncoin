@@ -13,6 +13,15 @@
         android:theme="@style/Theme.TP_leboncoin"
         tools:targetApi="31">
         <activity
+            android:name=".AdListViewActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".AdAddActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".AdViewActivity"
+            android:exported="true"/>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -20,14 +29,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".AdListViewActivity"
-            android:exported="false">
-        </activity>
-        <activity
-            android:name=".AdAddActivity"
-            android:exported="true">
         </activity>
 
     </application>
