@@ -19,6 +19,9 @@
             android:name=".AdAddActivity"
             android:exported="true"/>
         <activity
+            android:name=".AdViewActivity"
+            android:exported="true"/>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
