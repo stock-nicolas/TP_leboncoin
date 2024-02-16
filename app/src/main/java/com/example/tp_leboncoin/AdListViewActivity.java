@@ -2,7 +2,10 @@ package com.example.tp_leboncoin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -29,7 +32,21 @@ public class AdListViewActivity extends AppCompatActivity{
         AdAdapter adapter = new AdAdapter(this,liste_annonce);
 
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView parent, View view, int position, long id) {
+                Intent lancementActicity= new Intent(AdListViewActivity.this,AdViewActivity.class);
+                AdModel ad = (AdModel) parent.getItemAtPosition(position);
+                String title = ad.getTitle();
+                String address = ad.getAddress();
+                int img = ad.getImage();
+                lancementActicity.putExtra("title",title);
+                lancementActicity.putExtra("adresse",address);
+                lancementActicity.putExtra("image",img);
 
+                startActivity(lancementActicity);
+            }
+        });
 
 
     }
