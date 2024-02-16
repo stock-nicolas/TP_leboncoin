@@ -1,5 +1,6 @@
 package com.example.tp_leboncoin;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +19,7 @@ public class RecyclerViewAdAdapter extends RecyclerView.Adapter<RecyclerViewAdAd
     @Override
     public RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.item_card_material, parent, false);
+        View view = inflater.inflate(R.layout.item_recyclerview_ad, parent, false);
         return new RecyclerViewHolder(view);
     }
     @Override
@@ -29,18 +30,24 @@ public class RecyclerViewAdAdapter extends RecyclerView.Adapter<RecyclerViewAdAd
         holder.titleTextView.setText(ad.getTitle());
         holder.addressTextView.setText(ad.getAddress());
         holder.imageView.setImageResource(ad.getImage());
+        System.out.println(position);
     }
     @Override
     public int getItemCount() {return data.size();}
-    public static class RecyclerViewHolder extends RecyclerView.ViewHolder {
+    public static class RecyclerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public final ImageView imageView;
         public final TextView titleTextView;
         public final TextView addressTextView;
         public RecyclerViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(itemView.getId());
-            titleTextView = itemView.findViewById(itemView.getId());
-            addressTextView = itemView.findViewById(itemView.getId());
+            imageView = itemView.findViewById(R.id.imageView);
+            titleTextView = itemView.findViewById(R.id.textView);
+            addressTextView = itemView.findViewById(R.id.textView2);
+        }
+
+
+        @Override
+        public void onClick(View v) {
         }
     }
 }

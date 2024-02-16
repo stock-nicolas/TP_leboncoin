@@ -1,6 +1,8 @@
 package com.example.tp_leboncoin;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,7 +19,7 @@ public class AdListViewActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listview_ad);
+        setContentView(R.layout.activity_cardview_ad);
 
         AdModel Annonce1 = new AdModel("cailloux", "Lahure", R.drawable.ic_launcher_foreground);
         AdModel Annonce2 = new AdModel("béton", "Lahure", R.drawable.ic_launcher_foreground);
@@ -25,7 +27,7 @@ public class AdListViewActivity extends AppCompatActivity{
 
         ArrayList<AdModel> liste_annonce = new ArrayList<>();
 
-        ListView listView = findViewById(R.id.listView);
+        //ListView listView = findViewById(R.id.listView);
 
         liste_annonce.add(Annonce1);
         liste_annonce.add(Annonce2);
@@ -45,8 +47,14 @@ public class AdListViewActivity extends AppCompatActivity{
 
         AdAdapter adapter = new AdAdapter(this,liste_annonce);
 
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        RecyclerViewAdAdapter adapter2 = new RecyclerViewAdAdapter(liste_annonce);
+
+        RecyclerView recyclerView = findViewById(R.id.RecyclerView);
+
+        recyclerView.setAdapter(adapter2);
+
+        //listView.setAdapter(adapter);
+        /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View view, int position, long id) {
                 Intent lancementActicity= new Intent(AdListViewActivity.this,AdViewActivity.class);
@@ -60,7 +68,7 @@ public class AdListViewActivity extends AppCompatActivity{
 
                 startActivity(lancementActicity);
             }
-        });
+        });*/
 
 
     }

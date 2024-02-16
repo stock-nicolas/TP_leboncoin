@@ -37,7 +37,7 @@ public class AdAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup){
         AdModel ad = (AdModel) getItem(i);
 
-        view=inflater.inflate(R.layout.item_listview_ad,null);
+        view=inflater.inflate(R.layout.item_recyclerview_ad,null);
 
         ImageView imageIV= view.findViewById(R.id.imageView);
         TextView titleTV= view.findViewById(R.id.textView);
