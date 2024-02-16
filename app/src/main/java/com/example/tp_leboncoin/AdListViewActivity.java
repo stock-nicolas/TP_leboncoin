@@ -14,9 +14,9 @@ public class AdListViewActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listview_ad);
 
-        AdModel Annonce1 = new AdModel("cailloux", "Lahure", 1);
-        AdModel Annonce2 = new AdModel("béton", "Lahure", 2);
-        AdModel Annonce3 = new AdModel("métaux", "Lahure", 3);
+        AdModel Annonce1 = new AdModel("cailloux", "Lahure", R.drawable.ic_launcher_foreground);
+        AdModel Annonce2 = new AdModel("béton", "Lahure", R.drawable.ic_launcher_foreground);
+        AdModel Annonce3 = new AdModel("métaux", "Lahure", R.drawable.ic_launcher_foreground);
 
         ArrayList<AdModel> liste_annonce = new ArrayList<>();
 

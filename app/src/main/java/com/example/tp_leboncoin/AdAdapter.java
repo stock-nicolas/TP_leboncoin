@@ -43,7 +43,7 @@ public class AdAdapter extends BaseAdapter {
         TextView titleTV= view.findViewById(R.id.textView);
         TextView addressTV= view.findViewById(R.id.textView2);
 
-        imageIV.setImageResource(i);
+        imageIV.setImageResource(ad.getImage());
         titleTV.setText(ad.getTitle());
         addressTV.setText(ad.getAddress());
         return view;
