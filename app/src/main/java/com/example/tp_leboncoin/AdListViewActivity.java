@@ -2,10 +2,13 @@ package com.example.tp_leboncoin;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -45,15 +48,34 @@ public class AdListViewActivity extends AppCompatActivity{
             liste_annonce.add(Annonce4);
         }
 
-        AdAdapter adapter = new AdAdapter(this,liste_annonce);
-
-        RecyclerViewAdAdapter adapter2 = new RecyclerViewAdAdapter(liste_annonce);
+        //AdAdapter adapter = new AdAdapter(this,liste_annonce);
 
         RecyclerView recyclerView = findViewById(R.id.RecyclerView);
 
-        recyclerView.setAdapter(adapter2);
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
+        recyclerView.setLayoutManager(mLayoutManager);
 
-        //listView.setAdapter(adapter);
+        //recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        recyclerView.setAdapter(new RecyclerViewAdAdapter(liste_annonce, new RecyclerViewAdAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdModel item) {
+                Intent lancementActicity= new Intent(AdListViewActivity.this,AdViewActivity.class);
+                String title = item.getTitle();
+                String address = item.getAddress();
+                int img = item.getImage();
+                lancementActicity.putExtra("title",title);
+                lancementActicity.putExtra("adresse",address);
+                lancementActicity.putExtra("image",img);
+
+                startActivity(lancementActicity);
+            }
+        }) {
+        });
+
+        //recyclerView.setAdapter(adapter2);
+
+
         /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View view, int position, long id) {
@@ -71,5 +93,9 @@ public class AdListViewActivity extends AppCompatActivity{
         });*/
 
 
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(AdModel item);
     }
 }
