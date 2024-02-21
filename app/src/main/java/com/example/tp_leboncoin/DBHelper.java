@@ -14,7 +14,7 @@ public class DBHelper extends SQLiteOpenHelper {
     // Table columns
     public static final String _ID = "Identifiant";
     public static final String TITLE = "Titre annonce";
-    public static final String ADDRESS = "Adresse de l'annonce'";
+    public static final String ADDRESS = "Adresse annonce";
     public static final String IMAGE = "URI";
 
     // Database Information
