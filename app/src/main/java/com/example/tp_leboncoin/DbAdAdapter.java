@@ -1,5 +1,11 @@
 package com.example.tp_leboncoin;
 
+import android.content.Context;
+import android.database.Cursor;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 public class DbAdAdapter extends CursorAdapter {
     private final int item_layout;
     public DbAdAdapter(Context context, Cursor c, int layout) {
@@ -22,9 +28,8 @@ public class DbAdAdapter extends CursorAdapter {
         String image = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.IMAGE));
         idTextView.setText(id);
         titleTextView.setText(title);
-        7
         addressTextView.setText(address);
-        Glide.with(view).load(image).into(imageView); \\ Glide is a library to insert an image into
-        an imageview with a url.
+        Glide.with(view).load(image).into(imageView);
+        \\Glide is a library to insert an image into an imageview with a url.
     }
 }
