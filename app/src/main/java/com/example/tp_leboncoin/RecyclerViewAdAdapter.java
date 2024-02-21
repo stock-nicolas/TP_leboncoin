@@ -18,10 +18,10 @@ public class RecyclerViewAdAdapter extends RecyclerView.Adapter<RecyclerViewAdAd
     public interface OnItemClickListener {
         void onItemClick(AdModel item);
     }
-    private final List<AdModel> data;
+    private final List<DbAdModel> data;
 
     private final OnItemClickListener listener;
-    public RecyclerViewAdAdapter(List<AdModel> data,OnItemClickListener listener) {this.data = data;this.listener = listener;}
+    public RecyclerViewAdAdapter(List<DbAdModel> data,OnItemClickListener listener) {this.data = data;this.listener = listener;}
     @NonNull
     @Override
     public RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -33,7 +33,7 @@ public class RecyclerViewAdAdapter extends RecyclerView.Adapter<RecyclerViewAdAd
 
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
 // This method is called for each of the visible rows displayed in our RecyclerView. It is usually here that we update their appearance.
-        AdModel ad = data.get(position);
+        DbAdModel ad = data.get(position);
         holder.bind(ad,listener);
     }
     @Override
@@ -49,10 +49,10 @@ public class RecyclerViewAdAdapter extends RecyclerView.Adapter<RecyclerViewAdAd
             addressTextView = itemView.findViewById(R.id.textView2);
         }
 
-        public void bind(final AdModel item, final OnItemClickListener listener) {
+        public void bind(final DbAdModel item, final OnItemClickListener listener) {
             titleTextView.setText(item.getTitle());
             addressTextView.setText(item.getAddress());
-            imageView.setImageResource(item.getImage());
+            imageView.setImageURI(item.getImage());
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override public void onClick(View v) {
                     listener.onItemClick(item);

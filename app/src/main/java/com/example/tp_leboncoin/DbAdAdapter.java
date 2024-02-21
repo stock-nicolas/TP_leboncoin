@@ -33,6 +33,6 @@ public class DbAdAdapter extends CursorAdapter {
         titleTextView.setText(title);
         addressTextView.setText(address);
         Glide.with(view).load(image).into(imageView);
-        \\Glide is a library to insert an image into an imageview with a url.
+        //Glide is a library to insert an image into an imageview with a url
     }
 }

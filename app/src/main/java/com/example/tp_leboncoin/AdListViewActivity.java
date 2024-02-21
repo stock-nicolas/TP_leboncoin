@@ -6,20 +6,23 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AdListViewActivity extends AppCompatActivity{
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,9 +31,19 @@ public class AdListViewActivity extends AppCompatActivity{
         DBManager dbManager = DBManager.getDBManager(this);
         dbManager.open();
         Cursor cursor = dbManager.fetch();
-        CursorAdapter adapter = new DbAdAdapter(this, cursor, R.layout. ...);
+        CursorAdapter adapter = new DbAdAdapter(this, cursor, R.layout.activity_cardview_ad);
         adapter.notifyDataSetChanged();
-        listView.setAdapter(adapter);
+
+        List<DbAdModel> data = new ArrayList<>();
+
+        while(cursor != null){
+            String title = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.TITLE));
+            String address = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.ADDRESS));
+            String image = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.IMAGE));
+
+            data.add(new DbAdModel(title,address,image));
+            cursor.moveToNext();
+        }
 
         if(getIntent().hasExtra("Titre"))
         {
@@ -41,7 +54,7 @@ public class AdListViewActivity extends AppCompatActivity{
 
             AdModel Annonce4 = new AdModel(TITLE, ADRESSE,IMAGE);
 
-            liste_annonce.add(Annonce4);
+            //liste_annonce.add(Annonce4);
         }
 
         //AdAdapter adapter = new AdAdapter(this,liste_annonce);
@@ -53,7 +66,9 @@ public class AdListViewActivity extends AppCompatActivity{
 
         //recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        recyclerView.setAdapter(new RecyclerViewAdAdapter(liste_annonce, new RecyclerViewAdAdapter.OnItemClickListener() {
+
+
+        recyclerView.setAdapter(new RecyclerViewAdAdapter(data, new RecyclerViewAdAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(AdModel item) {
                 Intent lancementActicity= new Intent(AdListViewActivity.this,AdViewActivity.class);
