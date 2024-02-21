@@ -9,13 +9,13 @@ public class DBHelper extends SQLiteOpenHelper {
 
     // Table Name
 
-    public static final String TABLE_NAME = ...;
+    public static final String TABLE_NAME = "Annonces";
 
     // Table columns
-    public static final String _ID = ...;
-    public static final String TITLE = ...;
-    public static final String ADDRESS = ...;
-    public static final String IMAGE = ...;
+    public static final String _ID = "Identifiant";
+    public static final String TITLE = "Titre annonce";
+    public static final String ADDRESS = "Adresse de l'annonce'";
+    public static final String IMAGE = "URI";
 
     // Database Information
     static final String DB_NAME = "LEBONCOIN.DB";
