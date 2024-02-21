@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,17 +25,12 @@ public class AdListViewActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cardview_ad);
 
-        AdModel Annonce1 = new AdModel("cailloux", "Lahure", R.drawable.ic_launcher_foreground);
-        AdModel Annonce2 = new AdModel("béton", "Lahure", R.drawable.ic_launcher_foreground);
-        AdModel Annonce3 = new AdModel("métaux", "Lahure", R.drawable.ic_launcher_foreground);
-
-        ArrayList<AdModel> liste_annonce = new ArrayList<>();
-
-        //ListView listView = findViewById(R.id.listView);
-
-        liste_annonce.add(Annonce1);
-        liste_annonce.add(Annonce2);
-        liste_annonce.add(Annonce3);
+        DBManager dbManager = DBManager.getDBManager(this);
+        dbManager.open();
+        Cursor cursor = dbManager.fetch();
+        CursorAdapter adapter = new DbAdAdapter(this, cursor, R.layout. ...);
+        adapter.notifyDataSetChanged();
+        listView.setAdapter(adapter);
 
         if(getIntent().hasExtra("Titre"))
         {
