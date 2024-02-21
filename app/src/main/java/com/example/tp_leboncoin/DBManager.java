@@ -7,7 +7,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
 
-/*public class DBManager {
+public class DBManager {
 
     public static DBManager DBManager;
 
@@ -82,4 +82,4 @@ import android.database.sqlite.SQLiteDatabase;
         return dbHelper.getById(id);
     }
 
-}*/
+}

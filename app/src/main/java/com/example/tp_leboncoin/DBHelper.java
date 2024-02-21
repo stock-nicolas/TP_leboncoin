@@ -5,7 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-/*public class DBHelper extends SQLiteOpenHelper {
+public class DBHelper extends SQLiteOpenHelper {
 
     // Table Name
 
@@ -63,4 +63,4 @@ import android.database.sqlite.SQLiteOpenHelper;
 
         return new DbAdModel(title, address, image);
     }
-}*/
+}
