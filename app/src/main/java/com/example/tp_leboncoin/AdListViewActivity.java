@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -28,9 +29,8 @@ public class AdListViewActivity extends AppCompatActivity{
         DBManager dbManager = DBManager.getDBManager(this);
         dbManager.open();
         Cursor cursor = dbManager.fetch();
-        CursorAdapter adapter = new DbAdAdapter(this, cursor, R.layout. ...);
+        CursorAdapter adapter = new DbAdAdapter(this, cursor, R.layout.activity_cardview_ad);
         adapter.notifyDataSetChanged();
-        listView.setAdapter(adapter);
 
         if(getIntent().hasExtra("Titre"))
         {
