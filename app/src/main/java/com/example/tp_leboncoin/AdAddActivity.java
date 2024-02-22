@@ -6,33 +6,54 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class AdAddActivity extends AppCompatActivity {
+
+    private EditText Address_add;
+    private EditText Titre_add;
+    private ImageView image_add;
+    private Button Send;
+    private DBHelper dbHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_ad);
 
-        EditText Adress_add = findViewById(R.id.Adress_Ajout);
-        EditText Titre_add = findViewById(R.id.Titre_Ajout);
-        ImageView image_add = findViewById(R.id.Image_Ajout);
-        Button Send = findViewById(R.id.Bouton_Ajout);
+        dbHelper = new DBHelper(this);
+
+        Address_add = findViewById(R.id.Adress_Ajout);
+        Titre_add = findViewById(R.id.Titre_Ajout);
+        image_add = findViewById(R.id.Image_Ajout);
+        Send = findViewById(R.id.Bouton_Ajout);
 
         image_add.setImageResource(R.drawable.ic_launcher_background);
 
         Send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent lancementSecondeActivite = new Intent(AdAddActivity.this, AdListViewActivity.class);
-                String TITLE = Titre_add.getText().toString();
-                String ADRESS = Adress_add.getText().toString();
-                lancementSecondeActivite.putExtra("Adresse",ADRESS);
-                lancementSecondeActivite.putExtra("Titre",TITLE);
-                startActivity(lancementSecondeActivite);
+                insertData();
             }
         });
 
+    }
+
+    private void insertData() {
+        String title = Titre_add.getText().toString();
+        String address = Address_add.getText().toString();
+        //String image = image_add.getText().toString();
+
+        // Insertion dans la base de données
+        long result = dbHelper.insertData(title, address/*, image*/);
+
+        if (result != -1) {
+            Toast.makeText(AdAddActivity.this, "Insertion réussie", Toast.LENGTH_SHORT).show();
+            // Redirection vers une autre activité ou autre traitement si nécessaire
+        } else {
+            Toast.makeText(AdAddActivity.this, "Erreur lors de l'insertion", Toast.LENGTH_SHORT).show();
+        }
     }
 }
