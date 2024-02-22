@@ -23,6 +23,12 @@
             android:layout_height="wrap_content"
             android:text="Add" />
 
+        <Button
+            android:id="@+id/Boutton_Init_DB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Boutton_Init_DB" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
