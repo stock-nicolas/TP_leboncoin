@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="#ebf8fb">
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
@@ -14,7 +15,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:background="#ebf8fb">
 
             <ImageView
                 android:id="@+id/imageView"
@@ -30,15 +32,16 @@
                     android:layout_height="wrap_content"
                     android:text="Titre"
                     android:textStyle="bold"
-                    android:textSize="25dp"/>
+                    android:textSize="25dp"
+                    android:textColor="@color/black"/>
 
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:text="Localisation" />
-            </LinearLayout>
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Localisation" />
+        </LinearLayout>
 
 
 
