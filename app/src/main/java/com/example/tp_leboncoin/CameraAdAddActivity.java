@@ -101,9 +101,18 @@ public class CameraAdAddActivity extends AppCompatActivity {
         dbManager.open();
 
         // Camera_open button is for open the camera and add the setOnClickListener in this button
-        camera_open_id.setOnClickListener(v -> {
-            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            cameraActivityResultLauncher.launch(intent);
+        camera_open_id.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    Intent intent = new Intent();
+                    intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivity(intent);
+                }catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
+            }
         });
 
         gallery_open_id.setOnClickListener(v -> {
