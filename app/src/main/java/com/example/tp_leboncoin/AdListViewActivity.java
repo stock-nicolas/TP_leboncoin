@@ -31,20 +31,12 @@ public class AdListViewActivity extends AppCompatActivity{
 
         data = new ArrayList<>();
 
-        Log.i("DEBUG","1");
         DBManager dbManager = DBManager.getDBManager(this);
-        Log.i("DEBUG","2");
         dbManager.open();
-        Log.i("DEBUG","3");
-        Log.i("BD_Col",DBHelper._ID);
-        dbManager.init();
-        Log.i("DEBUG","4");
+        //dbManager.init();
         Cursor cursor = dbManager.fetch();
-        Log.i("DEBUG","5");
         CursorAdapter adapter = new DbAdAdapter(this, cursor, R.layout.item_recyclerview_ad);
-        Log.i("DEBUG","6");
         adapter.notifyDataSetChanged();
-        Log.i("DEBUG","7");
 
         data.clear();
 
@@ -65,7 +57,7 @@ public class AdListViewActivity extends AppCompatActivity{
             Intent i = getIntent();
             String TITLE = i.getStringExtra ("Titre");
             String ADRESSE = i.getStringExtra ("Adresse");
-            int IMAGE = i.getIntExtra("image",R.drawable.ic_launcher_background);
+            String IMAGE = i.getIntExtra("image",R.drawable.ic_launcher_background);
 
             AdModel Annonce4 = new AdModel(TITLE, ADRESSE,IMAGE);
 
