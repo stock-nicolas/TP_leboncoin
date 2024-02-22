@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#ebf8fb">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,11 +12,19 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="72dp" />
+
         <ImageView
             android:id="@+id/Image_Ajout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="297dp"
             tools:srcCompat="@tools:sample/avatars" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="38dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,32 +36,37 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="Caméra" />
 
             <Button
                 android:id="@+id/BoutonImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="Gallerie" />
         </LinearLayout>
 
         <EditText
             android:id="@+id/Titre_Ajout"
-            android:layout_width="match_parent"
+            android:layout_width="351dp"
             android:layout_height="83dp"
-            android:text="Title" />
+            android:layout_gravity="center_horizontal"
+            android:text="Title"
+            android:textColor="@color/black"/>
 
         <EditText
             android:id="@+id/Adress_Ajout"
-            android:layout_width="match_parent"
+            android:layout_width="353dp"
             android:layout_height="80dp"
-            android:text="Adress" />
+            android:layout_gravity="center_horizontal"
+            android:text="Adress"
+            android:textColor="@color/black"/>
 
         <Button
             android:id="@+id/Bouton_Ajout"
-            android:layout_width="match_parent"
+            android:layout_width="343dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:text="Send" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
