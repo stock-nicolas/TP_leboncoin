@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
 
         Button button1 = findViewById(R.id.button1);
         Button button2 = findViewById(R.id.button2);
-        Button button3 = findViewById(R.id.Boutton_Init_DB);
 
         Context cont = this;
         DBManager dbManager = DBManager.getDBManager(cont);
