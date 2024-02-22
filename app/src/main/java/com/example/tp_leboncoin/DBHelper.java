@@ -65,12 +65,12 @@ public class DBHelper extends SQLiteOpenHelper {
         return new DbAdModel(title, address, image);
     }
 
-    public long insertData(String title, String address/*, String image*/) {
+    public long insertData(String title, String address, String image) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(TITLE, title);
         contentValues.put(ADDRESS, address);
-        //contentValues.put(IMAGE, image);
+        contentValues.put(IMAGE, image);
         long result = db.insert(TABLE_NAME, null, contentValues);
         db.close();
         return result;

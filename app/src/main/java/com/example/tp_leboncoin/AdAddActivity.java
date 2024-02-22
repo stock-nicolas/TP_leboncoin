@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
+
 public class AdAddActivity extends AppCompatActivity {
 
     private EditText Address_add;
@@ -30,7 +32,8 @@ public class AdAddActivity extends AppCompatActivity {
         image_add = findViewById(R.id.Image_Ajout);
         Send = findViewById(R.id.Bouton_Ajout);
 
-        image_add.setImageResource(R.drawable.ic_launcher_background);
+        Glide.with(this).load("https://www.r-models.eu/6718/tissus-de-carbone-160gm-rg.jpg").into(image_add);
+
 
         Send.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,10 +47,10 @@ public class AdAddActivity extends AppCompatActivity {
     private void insertData() {
         String title = Titre_add.getText().toString();
         String address = Address_add.getText().toString();
-        //String image = image_add.getText().toString();
+        String image = "https://www.r-models.eu/6718/tissus-de-carbone-160gm-rg.jpg";
 
         // Insertion dans la base de données
-        long result = dbHelper.insertData(title, address/*, image*/);
+        long result = dbHelper.insertData(title, address, image);
 
         if (result != -1) {
             Toast.makeText(AdAddActivity.this, "Insertion réussie", Toast.LENGTH_SHORT).show();
