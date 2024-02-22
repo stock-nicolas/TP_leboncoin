@@ -18,7 +18,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class CameraAdAddActivity extends AppCompatActivity {
-
+/*
     // Define the button and imageview type variable
     Button camera_open_id;
     Button gallery_open_id;
@@ -83,5 +83,5 @@ public class CameraAdAddActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
+    }*/
 }

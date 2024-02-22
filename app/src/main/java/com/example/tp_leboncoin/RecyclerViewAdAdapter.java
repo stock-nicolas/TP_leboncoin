@@ -1,7 +1,5 @@
 package com.example.tp_leboncoin;
 
-import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,12 +9,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
+
+
 
 public class RecyclerViewAdAdapter extends RecyclerView.Adapter<RecyclerViewAdAdapter.RecyclerViewHolder>{
 
     public interface OnItemClickListener {
-        void onItemClick(AdModel item);
+        void onItemClick(DbAdModel item);
     }
     private final List<DbAdModel> data;
 
@@ -42,17 +44,19 @@ public class RecyclerViewAdAdapter extends RecyclerView.Adapter<RecyclerViewAdAd
         public final ImageView imageView;
         public final TextView titleTextView;
         public final TextView addressTextView;
+        public View itemview = null;
         public RecyclerViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imageView);
             titleTextView = itemView.findViewById(R.id.textView);
             addressTextView = itemView.findViewById(R.id.textView2);
+            itemview = itemView;
         }
 
         public void bind(final DbAdModel item, final OnItemClickListener listener) {
             titleTextView.setText(item.getTitle());
             addressTextView.setText(item.getAddress());
-            imageView.setImageURI(item.getImage());
+            Glide.with(this.itemview).load(item.getImage()).into(imageView);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override public void onClick(View v) {
                     listener.onItemClick(item);

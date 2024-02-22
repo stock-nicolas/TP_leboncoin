@@ -28,24 +28,36 @@ public class AdListViewActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cardview_ad);
 
+        Log.i("DEBUG","1");
         DBManager dbManager = DBManager.getDBManager(this);
+        Log.i("DEBUG","2");
         dbManager.open();
+        Log.i("DEBUG","3");
+        Log.i("BD_Col",DBHelper._ID);
+        dbManager.init();
+        Log.i("DEBUG","4");
         Cursor cursor = dbManager.fetch();
-        CursorAdapter adapter = new DbAdAdapter(this, cursor, R.layout.activity_cardview_ad);
+        Log.i("DEBUG","5");
+        CursorAdapter adapter = new DbAdAdapter(this, cursor, R.layout.item_recyclerview_ad);
+        Log.i("DEBUG","6");
         adapter.notifyDataSetChanged();
+        Log.i("DEBUG","7");
 
         List<DbAdModel> data = new ArrayList<>();
 
-        while(cursor != null){
+        while (cursor != null && cursor.moveToNext()) {
             String title = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.TITLE));
             String address = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.ADDRESS));
             String image = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.IMAGE));
 
-            data.add(new DbAdModel(title,address,image));
-            cursor.moveToNext();
+            data.add(new DbAdModel(title, address, image));
         }
 
-        if(getIntent().hasExtra("Titre"))
+        if (cursor != null) {
+            cursor.close(); // Assurez-vous de fermer le curseur après avoir fini de l'utiliser
+        }
+
+        /*if(getIntent().hasExtra("Titre"))
         {
             Intent i = getIntent();
             String TITLE = i.getStringExtra ("Titre");
@@ -55,7 +67,7 @@ public class AdListViewActivity extends AppCompatActivity{
             AdModel Annonce4 = new AdModel(TITLE, ADRESSE,IMAGE);
 
             //liste_annonce.add(Annonce4);
-        }
+        }*/
 
         //AdAdapter adapter = new AdAdapter(this,liste_annonce);
 
@@ -70,11 +82,11 @@ public class AdListViewActivity extends AppCompatActivity{
 
         recyclerView.setAdapter(new RecyclerViewAdAdapter(data, new RecyclerViewAdAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(AdModel item) {
+            public void onItemClick(DbAdModel item) {
                 Intent lancementActicity= new Intent(AdListViewActivity.this,AdViewActivity.class);
                 String title = item.getTitle();
                 String address = item.getAddress();
-                int img = item.getImage();
+                String img = item.getImage();
                 lancementActicity.putExtra("title",title);
                 lancementActicity.putExtra("adresse",address);
                 lancementActicity.putExtra("image",img);
