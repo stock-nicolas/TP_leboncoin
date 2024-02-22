@@ -13,34 +13,35 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="#ebf8fb">
+            android:background="#ebf8fb"
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="wrap_content"
+                android:layout_width="194dp"
                 android:layout_height="wrap_content"
                 tools:srcCompat="@tools:sample/avatars" />
 
 
-
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Titre"
-                    android:textStyle="bold"
-                    android:textSize="25dp"
-                    android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Titre"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"/>
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Localisation"
                 android:textColor="@color/black"
-                android:text="Localisation" />
+                android:layout_gravity="center_horizontal"/>
         </LinearLayout>
 
 
