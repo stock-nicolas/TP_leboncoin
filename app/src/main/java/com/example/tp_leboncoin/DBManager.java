@@ -44,7 +44,7 @@ public class DBManager {
         insert(new DbAdModel("Steel", "Lille", "https://as2.ftcdn.net/v2/jpg/03/91/83/87/1000_F_391838708_4HFADW5beay2VVlnoual6Qi5fWeIaD9V.jpg"));
         insert(new DbAdModel("Clay", "Douai", "https://constrofacilitator.com/wp-content/uploads/2020/02/clay-in-construction.jpg"));
         insert(new DbAdModel("Metal", "Lyon", "https://www.meto-constructions.fr/wp-content/uploads/2018/12/IMG_6067.jpg"));
-        insert(new DbAdModel("Glass", "Valenciennes", "https://i0.wp.com/www.tipsnepal.com/wp-content/uploads/2020/09/simple-float-glass-1505049573-3306125.jpeg?resize=500%2C317&quality=100&strip=all&ssl=1"));
+        insert(new DbAdModel("Glass", "Valenciennes", "https://www.3ds.com/assets/invest/2023-02/glass-verre-1.jpg"));
         insert(new DbAdModel("Wood", "Orchies", "https://yieldpro.com/wp-content/uploads/2020/08/lumber1.jpg"));
     }
 

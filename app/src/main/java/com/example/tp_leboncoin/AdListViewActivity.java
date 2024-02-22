@@ -40,17 +40,34 @@ public class AdListViewActivity extends AppCompatActivity{
 
         data.clear();
 
-        while (cursor != null && cursor.moveToNext()) {
+        /*while (cursor != null && cursor.moveToNext()) {
             String title = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.TITLE));
             String address = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.ADDRESS));
             String image = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.IMAGE));
 
             data.add(new DbAdModel(title, address, image));
+        }*/
+
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                String title = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.TITLE));
+                String address = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.ADDRESS));
+                String image = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.IMAGE));
+
+                // Faites quelque chose avec les données, par exemple, ajoutez-les à une liste
+                data.add(new DbAdModel(title, address, image));
+            } while (cursor.moveToNext());
+
+            // Fermez le curseur après avoir parcouru toutes les lignes
+            cursor.close();
+        } else {
+            // Aucune donnée dans le curseur
+            Log.d("Cursor", "Aucune donnée dans le curseur");
         }
 
-        if (cursor != null) {
+        /*if (cursor != null) {
             cursor.close(); // Assurez-vous de fermer le curseur après avoir fini de l'utiliser
-        }
+        }*/
 
         /*if(getIntent().hasExtra("Titre"))
         {
