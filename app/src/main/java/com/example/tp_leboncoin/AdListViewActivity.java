@@ -23,10 +23,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdListViewActivity extends AppCompatActivity{
+    private List<DbAdModel> data;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cardview_ad);
+
+        data = new ArrayList<>();
 
         Log.i("DEBUG","1");
         DBManager dbManager = DBManager.getDBManager(this);
@@ -43,7 +46,7 @@ public class AdListViewActivity extends AppCompatActivity{
         adapter.notifyDataSetChanged();
         Log.i("DEBUG","7");
 
-        List<DbAdModel> data = new ArrayList<>();
+        data.clear();
 
         while (cursor != null && cursor.moveToNext()) {
             String title = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.TITLE));
