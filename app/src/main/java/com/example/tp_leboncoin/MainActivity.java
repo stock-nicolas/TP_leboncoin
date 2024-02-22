@@ -21,16 +21,16 @@ public class MainActivity extends AppCompatActivity {
         Button button2 = findViewById(R.id.button2);
 
         Context cont = this;
-        DBManager dbManager = DBManager.getDBManager(cont);
-        dbManager.open();
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, AdListViewActivity.class));
+                DBManager dbManager = DBManager.getDBManager(cont);
+                dbManager.open();
                 Cursor cursor = dbManager.fetch();
                 if (cursor.getCount() == 0) {
                     dbManager.init();
                 }
+                startActivity(new Intent(MainActivity.this, AdListViewActivity.class));
             }
         });
 
@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, AdAddActivity.class));
             }
         });
-
 
     }
 
