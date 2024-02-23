@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:text="ListView" />
+            android:text="Annonces" />
 
         <Button
             android:id="@+id/button2"
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/button1"
             android:layout_centerHorizontal="true"
-            android:text="Add" />
+            android:text="Ajouter une annonce" />
 
         <ImageView
             android:id="@+id/imageView2"
