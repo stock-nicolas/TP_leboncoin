@@ -4,11 +4,14 @@ public class DbAdModel {
     private String title;
     private String address;
     private String image;
+    private String Desc;
 
-    public DbAdModel(String title, String address, String image){
+    public DbAdModel(String title, String address, String image, String Desc){
         this.address=address;
         this.title=title;
         this.image=image;
+        this.Desc=Desc;
+
     }
 
     public String getTitle(){
@@ -30,5 +33,12 @@ public class DbAdModel {
     }
     public void setAddress(String address){
         this.address=address;
+    }
+
+    public String getDesc(){
+        return Desc;
+    }
+    public void setDesc(String Desc){
+        this.Desc=Desc;
     }
 }

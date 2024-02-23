@@ -16,6 +16,7 @@ public class AdAddActivity extends AppCompatActivity {
 
     private EditText Address_add;
     private EditText Titre_add;
+    private EditText Description;
     private ImageView image_add;
     private Button Send;
     private DBHelper dbHelper;
@@ -30,6 +31,7 @@ public class AdAddActivity extends AppCompatActivity {
         Address_add = findViewById(R.id.Adress_Ajout);
         Titre_add = findViewById(R.id.Titre_Ajout);
         image_add = findViewById(R.id.Image_Ajout);
+        Description = findViewById(R.id.Desc_Ajout);
         Send = findViewById(R.id.Bouton_Ajout);
 
         Glide.with(this).load("https://www.r-models.eu/6718/tissus-de-carbone-160gm-rg.jpg").into(image_add);
@@ -48,9 +50,10 @@ public class AdAddActivity extends AppCompatActivity {
         String title = Titre_add.getText().toString();
         String address = Address_add.getText().toString();
         String image = "https://www.r-models.eu/6718/tissus-de-carbone-160gm-rg.jpg";
+        String description = Description.getText().toString();
 
         // Insertion dans la base de données
-        long result = dbHelper.insertData(title, address, image);
+        long result = dbHelper.insertData(title, address, image, description);
 
         if (result != -1) {
             Toast.makeText(AdAddActivity.this, "Insertion réussie", Toast.LENGTH_SHORT).show();

@@ -18,6 +18,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String ADDRESS = "Adresse_annonce";
     public static final String IMAGE = "URI";
 
+    public static final String DESC = "Description";
+
     // Database Information
     static final String DB_NAME = "LEBONCOIN.DB";
 
@@ -26,7 +28,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     // Creating table query
     private static final String CREATE_TABLE = "create table " + TABLE_NAME + "(" + _ID
-            + " INTEGER PRIMARY KEY AUTOINCREMENT, " + TITLE + " TEXT NOT NULL, " + ADDRESS + " TEXT, " + IMAGE + " TEXT);";
+            + " INTEGER PRIMARY KEY AUTOINCREMENT, " + TITLE + " TEXT NOT NULL, " + ADDRESS + " TEXT, " + IMAGE + " TEXT, " + DESC + " TEXT);";
 
     public DBHelper(Context context) {
         super(context,
@@ -61,16 +63,18 @@ public class DBHelper extends SQLiteOpenHelper {
         String title = data.getString(data.getColumnIndexOrThrow(TITLE));
         String address = data.getString(data.getColumnIndexOrThrow(ADDRESS));
         String image = data.getString(data.getColumnIndexOrThrow(IMAGE));
+        String description = data.getString(data.getColumnIndexOrThrow(DESC));
 
-        return new DbAdModel(title, address, image);
+        return new DbAdModel(title, address, image, description);
     }
 
-    public long insertData(String title, String address, String image) {
+    public long insertData(String title, String address, String image, String Desc) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(TITLE, title);
         contentValues.put(ADDRESS, address);
         contentValues.put(IMAGE, image);
+        contentValues.put(DESC,Desc);
         long result = db.insert(TABLE_NAME, null, contentValues);
         db.close();
         return result;

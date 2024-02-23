@@ -40,22 +40,15 @@ public class AdListViewActivity extends AppCompatActivity{
 
         data.clear();
 
-        /*while (cursor != null && cursor.moveToNext()) {
-            String title = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.TITLE));
-            String address = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.ADDRESS));
-            String image = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.IMAGE));
-
-            data.add(new DbAdModel(title, address, image));
-        }*/
-
         if (cursor != null && cursor.moveToFirst()) {
             do {
                 String title = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.TITLE));
                 String address = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.ADDRESS));
                 String image = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.IMAGE));
+                String description = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.DESC));
 
                 // Faites quelque chose avec les données, par exemple, ajoutez-les à une liste
-                data.add(new DbAdModel(title, address, image));
+                data.add(new DbAdModel(title, address, image, description));
             } while (cursor.moveToNext());
 
             // Fermez le curseur après avoir parcouru toutes les lignes
@@ -99,9 +92,11 @@ public class AdListViewActivity extends AppCompatActivity{
                 String title = item.getTitle();
                 String address = item.getAddress();
                 String img = item.getImage();
+                String description = item.getDesc();
                 lancementActicity.putExtra("title",title);
                 lancementActicity.putExtra("adresse",address);
                 lancementActicity.putExtra("image",img);
+                lancementActicity.putExtra("description",description);
 
                 startActivity(lancementActicity);
             }

@@ -127,8 +127,9 @@ public class CameraAdAddActivity extends AppCompatActivity {
                 ImageView image = findViewById(R.id.Image_Ajout);
                 TextView title = findViewById(R.id.Titre_Ajout);
                 TextView address = findViewById(R.id.Adress_Ajout);
+                String description = "";
 
-                DbAdModel ad = new DbAdModel(title.getText().toString(), address.getText().toString(), filePath);
+                DbAdModel ad = new DbAdModel(title.getText().toString(), address.getText().toString(), filePath, description);
                 dbManager.insert(ad);
 
                 Intent intent = new Intent(CameraAdAddActivity.this, AdListViewActivity.class);

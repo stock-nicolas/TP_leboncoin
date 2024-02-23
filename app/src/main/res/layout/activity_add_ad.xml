@@ -61,6 +61,13 @@
             android:layout_gravity="center_horizontal"
             android:text="Adress"
             android:textColor="@color/black"/>
+        <EditText
+            android:id="@+id/Desc_Ajout"
+            android:layout_width="353dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:text="Description"
+            android:textColor="@color/black"/>
 
         <Button
             android:id="@+id/Bouton_Ajout"

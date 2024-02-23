@@ -18,13 +18,16 @@ public class AdViewActivity extends AppCompatActivity {
         String TITLE = i.getStringExtra ("title");
         String ADRESSE = i.getStringExtra ("adresse");
         String IMAGE = i.getStringExtra("image");
+        String DESCRIPTION = i.getStringExtra("description");
 
         TextView Title = findViewById(R.id.textView5);
         TextView Adresse = findViewById(R.id.textView6);
         ImageView Image = findViewById(R.id.imageView3);
+        TextView Description = findViewById(R.id.Desc_View);
 
         Title.setText(TITLE);
         Adresse.setText(ADRESSE);
+        Description.setText(DESCRIPTION);
         Glide.with(this).load(IMAGE).into(Image);
 
     }

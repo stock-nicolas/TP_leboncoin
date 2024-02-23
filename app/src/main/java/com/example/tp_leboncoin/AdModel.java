@@ -5,6 +5,8 @@ public class AdModel {
     private String address;
     private int image;
 
+
+
     public AdModel(String title,String address, int image){
         this.address=address;
         this.title=title;
