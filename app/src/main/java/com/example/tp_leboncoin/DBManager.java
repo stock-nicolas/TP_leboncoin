@@ -17,7 +17,6 @@ public class DBManager {
 
     private DBManager(Context c) {
         context = c;
-        //init(); // Useful for adding ads for the first time.
     }
 
     public static DBManager getDBManager(Context context) {

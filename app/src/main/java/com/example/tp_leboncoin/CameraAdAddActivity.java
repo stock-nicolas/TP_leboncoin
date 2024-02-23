@@ -100,7 +100,6 @@ public class CameraAdAddActivity extends AppCompatActivity {
         DBManager dbManager = DBManager.getDBManager(this);
         dbManager.open();
 
-        // Camera_open button is for open the camera and add the setOnClickListener in this button
         camera_open_id.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

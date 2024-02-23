@@ -33,7 +33,6 @@ public class AdListViewActivity extends AppCompatActivity{
 
         DBManager dbManager = DBManager.getDBManager(this);
         dbManager.open();
-        //dbManager.init();
         Cursor cursor = dbManager.fetch();
         CursorAdapter adapter = new DbAdAdapter(this, cursor, R.layout.item_recyclerview_ad);
         adapter.notifyDataSetChanged();
@@ -46,8 +45,6 @@ public class AdListViewActivity extends AppCompatActivity{
                 String address = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.ADDRESS));
                 String image = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.IMAGE));
                 String description = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.DESC));
-
-                // Faites quelque chose avec les données, par exemple, ajoutez-les à une liste
                 data.add(new DbAdModel(title, address, image, description));
             } while (cursor.moveToNext());
 
@@ -58,30 +55,11 @@ public class AdListViewActivity extends AppCompatActivity{
             Log.d("Cursor", "Aucune donnée dans le curseur");
         }
 
-        /*if (cursor != null) {
-            cursor.close(); // Assurez-vous de fermer le curseur après avoir fini de l'utiliser
-        }*/
-
-        /*if(getIntent().hasExtra("Titre"))
-        {
-            Intent i = getIntent();
-            String TITLE = i.getStringExtra ("Titre");
-            String ADRESSE = i.getStringExtra ("Adresse");
-            String IMAGE = i.getIntExtra("image",R.drawable.ic_launcher_background);
-
-            AdModel Annonce4 = new AdModel(TITLE, ADRESSE,IMAGE);
-
-            //liste_annonce.add(Annonce4);
-        }*/
-
-        //AdAdapter adapter = new AdAdapter(this,liste_annonce);
-
         RecyclerView recyclerView = findViewById(R.id.RecyclerView);
 
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(mLayoutManager);
 
-        //recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
 
@@ -102,25 +80,6 @@ public class AdListViewActivity extends AppCompatActivity{
             }
         }) {
         });
-
-        //recyclerView.setAdapter(adapter2);
-
-
-        /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView parent, View view, int position, long id) {
-                Intent lancementActicity= new Intent(AdListViewActivity.this,AdViewActivity.class);
-                AdModel ad = (AdModel) parent.getItemAtPosition(position);
-                String title = ad.getTitle();
-                String address = ad.getAddress();
-                int img = ad.getImage();
-                lancementActicity.putExtra("title",title);
-                lancementActicity.putExtra("adresse",address);
-                lancementActicity.putExtra("image",img);
-
-                startActivity(lancementActicity);
-            }
-        });*/
 
 
     }

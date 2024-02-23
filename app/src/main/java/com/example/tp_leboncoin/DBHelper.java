@@ -48,7 +48,6 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    // Util if you want to add a clicklistener on specific ad in listview.
     public DbAdModel getById(long id) {
         SQLiteDatabase db=this.getWritableDatabase();
         String query="SELECT * FROM "+TABLE_NAME+" where "+ _ID + "=?";

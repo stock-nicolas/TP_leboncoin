@@ -24,18 +24,14 @@ public class DbAdAdapter extends CursorAdapter {
 
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
-        //TextView idTextView = (TextView) view.findViewById(...);
         TextView titleTextView = (TextView) view.findViewById(R.id.textView);
         TextView addressTextView = (TextView) view.findViewById(R.id.textView2);
         ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
-        //String id = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper._ID));
         String title = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.TITLE));
         String address = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.ADDRESS));
         String image = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.IMAGE));
-        //idTextView.setText(id);
         titleTextView.setText(title);
         addressTextView.setText(address);
         Glide.with(view).load(image).into(imageView);
-        //Glide is a library to insert an image into an imageview with a url
     }
 }
